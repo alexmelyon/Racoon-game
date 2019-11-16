@@ -9,11 +9,12 @@ public class RayTrace : MonoBehaviour
     // Жертва и путь
     public GameObject victim;
     public HunterState state;
+    public bool isVictimVisible = false;
 
     // Система охоты
     private bool IsHunting = false;
     private bool LostVictim = false;
-    private Vector3 LastSeenPosition;
+    public Vector3 LastSeenPosition;
 
     // Хвост, нос
     public GameObject tail, nose;
@@ -47,7 +48,7 @@ public class RayTrace : MonoBehaviour
 
     void IfVisible()
     {
-        // Debug.Log("IF VISIBLE");
+        isVictimVisible = true;
         // this.gameObject.GetComponent<Light>().color = Color.green;
         IsHunting = true;
         LastSeenPosition = victim.transform.position;
@@ -55,7 +56,7 @@ public class RayTrace : MonoBehaviour
 
     void IfInvisible()
     {
-        // Debug.Log("IF INVISIBLE");
+        isVictimVisible = false;
         // this.gameObject.GetComponent<Light>().color = Color.red;
         if (LostVictim)
             ReturnToPath();

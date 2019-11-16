@@ -1456,8 +1456,8 @@ GameObject:
   - component: {fileID: 1243801528}
   - component: {fileID: 1243801527}
   - component: {fileID: 1243801526}
-  - component: {fileID: 1243801531}
   - component: {fileID: 1243801530}
+  - component: {fileID: 1243801531}
   - component: {fileID: 1243801532}
   m_Layer: 0
   m_Name: Dog
@@ -1576,6 +1576,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8763044571d7cef498c1bdc1f77cb245, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  victim: {fileID: 1406773843}
   patrolDots:
   - {fileID: 1759097316}
   - {fileID: 427319283}
@@ -1594,6 +1595,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   victim: {fileID: 1406773843}
   state: 0
+  isVictimVisible: 0
+  LastSeenPosition: {x: 0, y: 0, z: 0}
   tail: {fileID: 968700309}
   nose: {fileID: 1728078067}
 --- !u!1 &1359842598

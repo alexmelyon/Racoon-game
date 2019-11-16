@@ -12,9 +12,10 @@ public class Dog : MonoBehaviour
     }
     DogState dogState = DogState.PATROL_FORWARD;
 
+    public GameObject victim;
     public GameObject[] patrolDots;
     
-    private int lastPatrolDot = 0;
+    private int lastPatrolIndex = 0;
 
     void Start()
     {
@@ -25,24 +26,31 @@ public class Dog : MonoBehaviour
     void Update()
     {
         NavMeshAgent agent = GetComponent<NavMeshAgent>();
-        Vector3 next = patrolDots[lastPatrolDot].transform.position;
+        Vector3 next = patrolDots[lastPatrolIndex].transform.position;
         agent.SetDestination(next);
         if(dogState == DogState.PATROL_FORWARD) {
             if(Vector3.Magnitude(next - transform.position) < 1.5) {
-                lastPatrolDot++;
+                lastPatrolIndex++;
             }
-            if(lastPatrolDot == patrolDots.Length - 1) {
+            if(lastPatrolIndex == patrolDots.Length - 1) {
                 dogState = DogState.PATROL_BACKWARD;
             }
         } else if(dogState == DogState.PATROL_BACKWARD) {
             if(Vector3.Magnitude(next - transform.position) < 1.5) {
-                lastPatrolDot--;
+                lastPatrolIndex--;
             }
-            if(lastPatrolDot == 0) {
+            if(lastPatrolIndex == 0) {
                 dogState = DogState.PATROL_FORWARD;
             }
         } else if(dogState == DogState.FOLLOW_VICTIM) {
-            Debug.Log("FOLLOW VICTIM");
+            RayTrace rt = GetComponent<RayTrace>();
+            if(rt.isVictimVisible) {
+                Debug.Log("FOLLOW VICTIM 1");
+                agent.SetDestination(victim.transform.position);
+            } else {
+                Debug.Log("FOLLOW VICTIM 2");
+                agent.SetDestination(rt.LastSeenPosition);
+            }
         }
     }
 
