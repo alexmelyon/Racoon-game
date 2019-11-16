@@ -25,8 +25,8 @@ public class Dog : MonoBehaviour
     void Update()
     {
         NavMeshAgent agent = GetComponent<NavMeshAgent>();
-            Vector3 next = patrolDots[lastPatrolDot].transform.position;
-            agent.SetDestination(next);
+        Vector3 next = patrolDots[lastPatrolDot].transform.position;
+        agent.SetDestination(next);
         if(dogState == DogState.PATROL_FORWARD) {
             if(Vector3.Magnitude(next - transform.position) < 1.5) {
                 lastPatrolDot++;

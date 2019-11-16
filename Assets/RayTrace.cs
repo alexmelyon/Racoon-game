@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Experimental.GlobalIllumination;
 
 public class RayTrace : MonoBehaviour
 {
@@ -17,23 +16,23 @@ public class RayTrace : MonoBehaviour
     private Vector3 LastSeenPosition;
 
     // Хвост, нос
-    private GameObject tail, nose;
+    public GameObject tail, nose;
 
     // Start is called before the first frame update
     void Start()
     {
-        nose = gameObject.GetComponentsInChildren<GameObject>()[0];
-        tail = gameObject.GetComponentsInChildren<GameObject>()[1];
+        // nose = gameObject.GetComponentsInChildren<GameObject>()[0];
+        // tail = gameObject.GetComponentsInChildren<GameObject>()[1];
     }
 
     // Update is called once per frame
     void Update()
     {
-        RaycastHit NoseHit, TailHit; string VictimName = "Enot";
+        RaycastHit NoseHit, TailHit;
         if (Physics.Raycast(nose.transform.position, victim.transform.position - nose.transform.position, out NoseHit, 50.0f))
-            if (NoseHit.collider.name == VictimName)
+            if (NoseHit.collider.gameObject == victim)
                 if (Physics.Raycast(tail.transform.position, victim.transform.position - tail.transform.position, out TailHit, 50.0f))
-                    if (TailHit.collider.name == VictimName)
+                    if (TailHit.collider.gameObject == victim)
                         if (NoseHit.distance < TailHit.distance)
                             IfVisible(); // Если видит
                         else IfInvisible();
@@ -48,31 +47,36 @@ public class RayTrace : MonoBehaviour
 
     void IfVisible()
     {
-        this.gameObject.GetComponent<Light>().color = Color.green;
+        // Debug.Log("IF VISIBLE");
+        // this.gameObject.GetComponent<Light>().color = Color.green;
         IsHunting = true;
         LastSeenPosition = victim.transform.position;
     }
 
     void IfInvisible()
     {
-        this.gameObject.GetComponent<Light>().color = Color.red;
+        // Debug.Log("IF INVISIBLE");
+        // this.gameObject.GetComponent<Light>().color = Color.red;
         if (LostVictim)
             ReturnToPath();
     }
     void ReturnToPath()
     {
+        Debug.Log("RETURN");
         IsHunting = false;
         // Тут возвращаемся на путь
     }
 
     void FollowVictim()
     {
+        Debug.Log("FOLLOW VICTIM");
         state = HunterState.Hunting;
         // Здесь чтобы следовала за ним в LastSeenPosition
     }
 
     void FollowPath()
     {
+        Debug.Log("FOLLOW PATH");
         state = HunterState.Roaming;
         // Здесь чтобы отправлялся следовать по пути
     }
