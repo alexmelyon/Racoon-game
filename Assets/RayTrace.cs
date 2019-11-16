@@ -80,4 +80,7 @@ public class RayTrace : MonoBehaviour
         state = HunterState.Roaming;
         // Здесь чтобы отправлялся следовать по пути
     }
+    public void LastSeenReached() {
+        Debug.Log("LAST SEEN REACHED");
+    }
 }

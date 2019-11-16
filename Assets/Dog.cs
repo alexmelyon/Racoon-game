@@ -45,4 +45,8 @@ public class Dog : MonoBehaviour
             Debug.Log("FOLLOW VICTIM");
         }
     }
+
+    public void LastSeenReached() {
+        GetComponent<RayTrace>().LastSeenReached();
+    }
 }
