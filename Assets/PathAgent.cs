@@ -8,12 +8,11 @@ public class PathAgent : MonoBehaviour
 {
     public PathCreator pathCreator;
     public float speed = 10F;
-    public GameObject floor;
 
     void Start() {
         
         NavMeshAgent agent = GetComponent<NavMeshAgent>();
-        bool warped = agent.Warp(floor.transform.position);
+        bool warped = agent.Warp(transform.position);
         Debug.Log("START " + warped);
 
         // StartCoroutine(HoldNavAgent(floor, GetComponent<NavMeshAgent>()));
