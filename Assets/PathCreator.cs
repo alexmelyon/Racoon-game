@@ -18,24 +18,16 @@ public class PathCreator : MonoBehaviour
     {
         foreach (var touch in Input.touches)
         {
-            Debug.Log("TOUCH 1");
             if (touch.phase == TouchPhase.Began || touch.phase == TouchPhase.Moved)
             {
-                Debug.Log("TOUCH 2");
                 handleTouch(touch.position);
             }
         }
 
         if (Input.GetMouseButton(0))
         {
-            Debug.Log("MOUSE");
             Vector3 mouse = Input.mousePosition;
             handleTouch(mouse);
-            //     PathDot dot = new PathDot();
-            //     dot.pos = mouse;
-            //     GameObject go = Instantiate(pathPrefab, mouse, Quaternion.identity);
-            //     dot.go = go;
-            //     pathList.Add(dot);
         }
     }
 
@@ -43,7 +35,8 @@ public class PathCreator : MonoBehaviour
     {
         var ray = Camera.main.ScreenPointToRay(screePos);
         RaycastHit hit;
-        if (Physics.Raycast(ray, out hit))
+        Debug.Log("GROUND " + LayerMask.NameToLayer("Ground"));
+        if (Physics.Raycast(ray, out hit, Mathf.Infinity, 1 << LayerMask.NameToLayer("Ground")))
         {
             Vector3 worldPos = hit.point;
 
@@ -51,9 +44,6 @@ public class PathCreator : MonoBehaviour
             GameObject go = null;
             if (lastCreated == null || lastCreated != null && Vector3.Magnitude(lastCreated.transform.position - worldPos) > minDistance)
             {
-                if(lastCreated != null) {
-                    Debug.Log("LAST MAGN " + Vector3.Magnitude(lastCreated.transform.position - worldPos));
-                }
                 go = Instantiate(pathPrefab, worldPos, Quaternion.identity);
                 lastCreated = go;
             }
