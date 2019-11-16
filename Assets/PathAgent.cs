@@ -7,7 +7,6 @@ using UnityEngine.AI;
 public class PathAgent : MonoBehaviour
 {
     public PathCreator pathCreator;
-    public float speed = 10F;
 
     void Start() {
         

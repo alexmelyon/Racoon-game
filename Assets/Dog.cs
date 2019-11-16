@@ -54,6 +54,15 @@ public class Dog : MonoBehaviour
         }
     }
 
+    public void DoFollow() {
+        dogState = DogState.FOLLOW_VICTIM;
+    }
+
+    public void DoPatrol()
+    {
+        dogState = DogState.PATROL_FORWARD;
+    }
+
     public void LastSeenReached() {
         GetComponent<RayTrace>().LastSeenReached();
     }
