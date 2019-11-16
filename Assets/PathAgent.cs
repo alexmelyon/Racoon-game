@@ -20,15 +20,10 @@ public class PathAgent : MonoBehaviour
             return;
         }
         Vector3 next = pathCreator.GetNext();
-        // Vector3 pos = Vector3.MoveTowards(transform.position, next, speed * Time.deltaTime);
-        // transform.position = pos;
         NavMeshAgent agent = GetComponent<NavMeshAgent>();
-        // Debug.Log("DESTINATION");
         agent.SetDestination(next);
         
-        
         float magnitude = Vector3.Magnitude(next - transform.position);
-        // Debug.Log("DESTINATION " + magnitude);
         if(magnitude < 1.5) {
             pathCreator.RemoveNext();
         }

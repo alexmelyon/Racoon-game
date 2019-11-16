@@ -9,7 +9,7 @@ public class RayTrace : MonoBehaviour
     // Жертва и путь
     public GameObject victim;
     public HunterState state;
-    public bool isVictimVisible = false;
+    public bool isVictimVisible {get;set;}
 
     // Система охоты
     private bool IsHunting = false;
