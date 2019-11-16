@@ -59,6 +59,7 @@ public class RayTrace : MonoBehaviour
 
     void FollowVictim()
     {
+        Debug.Log("FOLLOW");
         // Здесь чтобы следовала за ним в LastSeenPosition
     }
 
@@ -69,6 +70,6 @@ public class RayTrace : MonoBehaviour
 
     void FollowPath()
     {
-
+        Debug.Log("PATROL");
     }
 }

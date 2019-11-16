@@ -13,19 +13,7 @@ public class PathAgent : MonoBehaviour
         
         NavMeshAgent agent = GetComponent<NavMeshAgent>();
         bool warped = agent.Warp(transform.position);
-        Debug.Log("START " + warped);
-
-        // StartCoroutine(HoldNavAgent(floor, GetComponent<NavMeshAgent>()));
     }
-
-    // public IEnumerator HoldNavAgent(GameObject target, NavMeshAgent pathFinder)
-    // {
-    //     yield return new WaitForSeconds(0.1f);
-    //     pathFinder.enabled = true;
-    //     target = GameObject.FindGameObjectWithTag("NavTarget");
-    //     pathFinder.speed = speed;
-    //     pathFinder.SetDestination(target.transform.position);
-    // }
 
     void Update()
     {

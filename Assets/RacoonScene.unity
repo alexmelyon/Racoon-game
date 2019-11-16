@@ -1836,7 +1836,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pathCreator: {fileID: 1976564235}
   speed: 10
-  floor: {fileID: 473872791}
 --- !u!1 &1639630644
 GameObject:
   m_ObjectHideFlags: 0
