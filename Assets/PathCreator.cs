@@ -14,7 +14,6 @@ public class PathCreator : MonoBehaviour
     }
     List<PathDot> pathList = new List<PathDot>();
     private GameObject lastCreated;
-    public NavMeshAgent racoon;
 
     // Update is called once per frame
     void Update()
@@ -41,9 +40,10 @@ public class PathCreator : MonoBehaviour
     }
 
     void ClearPath() {
-        if(!racoon.isStopped) {
+        NavMeshAgent agent = GetComponent<NavMeshAgent>();
+        if(!agent.isStopped) {
             // Debug.Log("STOP");
-            racoon.SetDestination(racoon.transform.position);
+            agent.SetDestination(agent.transform.position);
         }
         foreach(PathDot d in pathList) {
             if(d.go != null) {

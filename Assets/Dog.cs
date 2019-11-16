@@ -13,8 +13,8 @@ public class Dog : MonoBehaviour
     DogState dogState = DogState.PATROL_FORWARD;
 
     public GameObject victim;
-    public float walkSpeed = 1F;
-    public float runSpeed = 2F;
+    public float walkSpeed = 3.5F;
+    public float runSpeed = 5F;
     public GameObject[] patrolDots;
     
     private int lastPatrolIndex = 0;

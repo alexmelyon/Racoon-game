@@ -11,9 +11,9 @@ public class SausageEater : MonoBehaviour
     void OnTriggerEnter(Collider other)
     {
         if(other.gameObject.GetComponent<Sausage>() != null) {
-            Debug.Log("SAUSAGE");   
-            // FixedJoint joint = GetComponent<FixedJoint>();
-            // joint.connectedBody = other.gameObject.GetComponent<Rigidbody>();
+            Debug.Log("SAUSAGE");
+            FixedJoint joint = GetComponent<FixedJoint>();
+            joint.connectedBody = other.gameObject.GetComponent<Rigidbody>();
         }
     }
 }
