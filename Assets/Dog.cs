@@ -5,8 +5,17 @@ using UnityEngine.AI;
 
 public class Dog : MonoBehaviour
 {
+    enum DogState {
+        PATROL_FORWARD,
+        PATROL_BACKWARD,
+        FOLLOW_VICTIM
+    }
+    DogState dogState = DogState.PATROL_FORWARD;
+
     public GameObject[] patrolDots;
-    // Start is called before the first frame update
+    
+    private int lastPatrolDot = 0;
+
     void Start()
     {
         
@@ -16,6 +25,21 @@ public class Dog : MonoBehaviour
     void Update()
     {
         NavMeshAgent agent = GetComponent<NavMeshAgent>();
-        
+            Vector3 next = patrolDots[lastPatrolDot].transform.position;
+            agent.SetDestination(next);
+        if(dogState == DogState.PATROL_FORWARD) {
+            if(Vector3.Magnitude(next - transform.position) < 1.5) {
+                lastPatrolDot++;
+            }
+            // if(lastPatrolDot == patrolDots.Length - 1) {
+            //     dogState = DogState.PATROL_BACKWARD;
+            // }
+        } else if(dogState == DogState.PATROL_BACKWARD) {
+            if(Vector3.Magnitude(next - transform.position) < 1.5) {
+                lastPatrolDot--;
+            }
+        } else if(dogState == DogState.FOLLOW_VICTIM) {
+            Debug.Log("FOLLOW VICTIM");
+        }
     }
 }

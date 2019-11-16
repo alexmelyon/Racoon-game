@@ -47,6 +47,7 @@
   <ItemGroup>     <Compile Include="Assets\Dog.cs" />
      <Compile Include="Assets\PathAgent.cs" />
      <Compile Include="Assets\PathCreator.cs" />
+     <Compile Include="Assets\RayTrace.cs" />
  <Reference Include="Unity.Timeline.Editor">
  <HintPath>C:/workspace/GCPermRacoon/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
  </Reference>
