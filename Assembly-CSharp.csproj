@@ -44,7 +44,8 @@
     <ImplicitlyExpandNETStandardFacades>false</ImplicitlyExpandNETStandardFacades>
     <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
   </PropertyGroup>
-  <ItemGroup>     <Compile Include="Assets\PathAgent.cs" />
+  <ItemGroup>     <Compile Include="Assets\Dog.cs" />
+     <Compile Include="Assets\PathAgent.cs" />
      <Compile Include="Assets\PathCreator.cs" />
  <Reference Include="Unity.Timeline.Editor">
  <HintPath>C:/workspace/GCPermRacoon/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>

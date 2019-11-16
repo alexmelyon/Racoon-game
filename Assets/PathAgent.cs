@@ -37,6 +37,7 @@ public class PathAgent : MonoBehaviour
         // Vector3 pos = Vector3.MoveTowards(transform.position, next, speed * Time.deltaTime);
         // transform.position = pos;
         NavMeshAgent agent = GetComponent<NavMeshAgent>();
+        // Debug.Log("DESTINATION");
         agent.SetDestination(next);
         
         
