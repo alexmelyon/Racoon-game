@@ -31,12 +31,15 @@ public class Dog : MonoBehaviour
             if(Vector3.Magnitude(next - transform.position) < 1.5) {
                 lastPatrolDot++;
             }
-            // if(lastPatrolDot == patrolDots.Length - 1) {
-            //     dogState = DogState.PATROL_BACKWARD;
-            // }
+            if(lastPatrolDot == patrolDots.Length - 1) {
+                dogState = DogState.PATROL_BACKWARD;
+            }
         } else if(dogState == DogState.PATROL_BACKWARD) {
             if(Vector3.Magnitude(next - transform.position) < 1.5) {
                 lastPatrolDot--;
+            }
+            if(lastPatrolDot == 0) {
+                dogState = DogState.PATROL_FORWARD;
             }
         } else if(dogState == DogState.FOLLOW_VICTIM) {
             Debug.Log("FOLLOW VICTIM");
