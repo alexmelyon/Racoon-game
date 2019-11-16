@@ -1,2 +1,5 @@
 Library
 Temp
+*.ide-wal
+*.lock
+*.ide-wal
