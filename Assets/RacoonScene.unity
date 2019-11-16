@@ -1459,6 +1459,7 @@ GameObject:
   - component: {fileID: 1243801530}
   - component: {fileID: 1243801531}
   - component: {fileID: 1243801532}
+  - component: {fileID: 1243801533}
   m_Layer: 0
   m_Name: Dog
   m_TagString: Untagged
@@ -1599,6 +1600,22 @@ MonoBehaviour:
   LastSeenPosition: {x: 0, y: 0, z: 0}
   tail: {fileID: 968700309}
   nose: {fileID: 1728078067}
+--- !u!208 &1243801533
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1243801525}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.5, y: 1, z: 0.5}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0, z: 0}
+  m_TimeToStationary: 0.5
 --- !u!1 &1359842598
 GameObject:
   m_ObjectHideFlags: 0
@@ -1723,6 +1740,7 @@ GameObject:
   - component: {fileID: 1406773844}
   - component: {fileID: 1406773849}
   - component: {fileID: 1406773850}
+  - component: {fileID: 1406773851}
   m_Layer: 0
   m_Name: Racoon
   m_TagString: Untagged
@@ -1856,6 +1874,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pathCreator: {fileID: 1976564235}
   speed: 10
+--- !u!208 &1406773851
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1406773843}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.5, y: 1, z: 0.5}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0, z: 0}
+  m_TimeToStationary: 0.5
 --- !u!1 &1639630644
 GameObject:
   m_ObjectHideFlags: 0
