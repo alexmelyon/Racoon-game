@@ -13,6 +13,8 @@ public class Dog : MonoBehaviour
     DogState dogState = DogState.PATROL_FORWARD;
 
     public GameObject victim;
+    public float walkSpeed = 3.5F;
+    public float runSpeed = 5F;
     public GameObject[] patrolDots;
     
     private int lastPatrolIndex = 0;
@@ -52,6 +54,15 @@ public class Dog : MonoBehaviour
                 agent.SetDestination(rt.LastSeenPosition);
             }
         }
+    }
+
+    public void DoFollow() {
+        dogState = DogState.FOLLOW_VICTIM;
+    }
+
+    public void DoPatrol()
+    {
+        dogState = DogState.PATROL_FORWARD;
     }
 
     public void LastSeenReached() {

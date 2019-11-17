@@ -59,13 +59,7 @@ public class RayTrace : MonoBehaviour
         isVictimVisible = false;
         // this.gameObject.GetComponent<Light>().color = Color.red;
         if (LostVictim)
-            ReturnToPath();
-    }
-    void ReturnToPath()
-    {
-        Debug.Log("RETURN");
-        IsHunting = false;
-        // Тут возвращаемся на путь
+            FollowPath();
     }
 
     void FollowVictim()
@@ -73,15 +67,20 @@ public class RayTrace : MonoBehaviour
         Debug.Log("FOLLOW VICTIM");
         state = HunterState.Hunting;
         // Здесь чтобы следовала за ним в LastSeenPosition
+        GetComponent<Dog>().DoFollow();
     }
 
     void FollowPath()
     {
         Debug.Log("FOLLOW PATH");
         state = HunterState.Roaming;
+        IsHunting = false;
+        LostVictim = false;
         // Здесь чтобы отправлялся следовать по пути
+        GetComponent<Dog>().DoPatrol();
     }
     public void LastSeenReached() {
         Debug.Log("LAST SEEN REACHED");
+        LostVictim = true;
     }
 }
