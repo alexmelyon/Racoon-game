@@ -17,7 +17,10 @@ public class PathCreator : MonoBehaviour
         public GameObject go;
     }
     List<PathDot> pathList = new List<PathDot>();
-    List<PathDot> tempPathList = new List<PathDot>();
+    // List<PathDot> tempPathList {
+    //     get { return pathList; }
+    //     set { pathList = value; }
+    // }
     private GameObject lastCreated;
 
     // Update is called once per frame
@@ -33,7 +36,7 @@ public class PathCreator : MonoBehaviour
                 handleTouch(touch.position);
             }
             if(touch.phase == TouchPhase.Ended) {
-                pathList = tempPathList;
+                // pathList = tempPathList;
                 disableFingerAnimation();
             }
         }
@@ -58,8 +61,8 @@ public class PathCreator : MonoBehaviour
     }
 
     void replacePath() {
-        pathList.AddRange(tempPathList);
-        tempPathList.Clear();
+        // pathList.AddRange(pathList);
+        // pathList.Clear();
     }
 
     void ClearPath() {
@@ -86,7 +89,7 @@ public class PathCreator : MonoBehaviour
             
             List<Vector3> dots = new List<Vector3>();
             dots.Add(racoon.transform.position);
-            dots.AddRange(tempPathList.Select(it => it.pos));
+            dots.AddRange(pathList.Select(it => it.pos));
             bool closeEnough = dots.Any(it => Vector3.Magnitude(it - worldPos) < distanceForDot);
             if(!closeEnough) {
                 return;
@@ -102,7 +105,7 @@ public class PathCreator : MonoBehaviour
                 PathDot dot = new PathDot();
                 dot.go = go;
                 dot.pos = worldPos;
-                tempPathList.Add(dot);
+                pathList.Add(dot);
             }
         }
     }
