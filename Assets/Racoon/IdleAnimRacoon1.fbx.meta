@@ -1,11 +1,11 @@
 fileFormatVersion: 2
-guid: eb121fb75589f03448ea0706027fd2e1
+guid: 8d7b69b3219abb34fb0a6900ec2cbff3
 ModelImporter:
   serializedVersion: 26
   internalIDToNameTable:
   - first:
-      74: 1827226128182048838
-    second: Take 001
+      74: 746396834714897429
+    second: Racoon_Skeleton|Racoon_SkeletonAction
   externalObjects: {}
   materials:
     importMaterials: 1
@@ -35,11 +35,11 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: Take 001
-      takeName: Take 001
+      name: Racoon_Skeleton|Racoon_SkeletonAction
+      takeName: Racoon_Skeleton|Racoon_SkeletonAction
       internalID: 0
       firstFrame: 0
-      lastFrame: 30
+      lastFrame: 139
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
