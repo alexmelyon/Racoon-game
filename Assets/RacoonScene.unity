@@ -1609,7 +1609,7 @@ PrefabInstance:
     - target: {fileID: -4216859302048453862, guid: 298feaee996d3a140a3eb59895d3d91d,
         type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 298feaee996d3a140a3eb59895d3d91d,
         type: 3}
@@ -1724,6 +1724,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1487255611}
   - component: {fileID: 1487255610}
+  - component: {fileID: 1487255612}
   m_Layer: 0
   m_Name: finger
   m_TagString: Untagged
@@ -1794,6 +1795,22 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 90.00001, y: 0, z: 57.438004}
+--- !u!111 &1487255612
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1487255609}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 7400000, guid: d8e4e3efc42219e43a4a02c6b2bacd34, type: 2}
+  m_Animations:
+  - {fileID: 7400000, guid: d8e4e3efc42219e43a4a02c6b2bacd34, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 1
+  m_AnimatePhysics: 0
+  m_CullingType: 0
 --- !u!1 &1728078067
 GameObject:
   m_ObjectHideFlags: 0
@@ -2056,6 +2073,7 @@ MonoBehaviour:
   pathPrefab: {fileID: 4939701059694192135, guid: c1b27f4c0cd5489479f47f8743a7efaa,
     type: 3}
   racoon: {fileID: 1406773844}
+  fingerAnimation: {fileID: 1487255609}
 --- !u!4 &1976564236
 Transform:
   m_ObjectHideFlags: 0
