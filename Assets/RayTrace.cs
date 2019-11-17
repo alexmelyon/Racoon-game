@@ -18,6 +18,7 @@ public class RayTrace : MonoBehaviour
 
     // Хвост, нос
     public GameObject tail, nose;
+    public float fov = 90;
 
     // Start is called before the first frame update
     void Start()
@@ -29,54 +30,64 @@ public class RayTrace : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        RaycastHit NoseHit, TailHit;
-        float maxDistance = 50F;
-        if (Physics.Raycast(nose.transform.position, victim.transform.position - nose.transform.position, out NoseHit, maxDistance))
-        {
-            Debug.Log("NOSE " + NoseHit.collider.gameObject.name);
-            if(NoseHit.collider.gameObject.transform.IsChildOf(victim.transform))
-            {
-                if (Physics.Raycast(tail.transform.position, victim.transform.position - tail.transform.position, out TailHit, maxDistance))
-                {
-                    // if (TailHit.collider.gameObject == victim)
-                    if (TailHit.collider.gameObject.transform.IsChildOf(victim.transform))
-                    {
-                        if (NoseHit.distance < (TailHit.distance - Vector3.Magnitude(nose.transform.position - tail.transform.position) / 4))
-                        {
-                            IfVisible(); // Если видит
-                        }
-                        else
-                        {
-                            IfInvisible();
-                        }
-                    }
-                    else IfVisible(); // Если видит только носом   
-                }
-                else
-                {
+        // RaycastHit NoseHit, TailHit;
+        // float maxDistance = 50F;
+        // if (Physics.Raycast(nose.transform.position, victim.transform.position - nose.transform.position, out NoseHit, maxDistance))
+        // {
+        //     Debug.Log("NOSE " + NoseHit.collider.gameObject.name);
+        //     if(NoseHit.collider.gameObject.transform.IsChildOf(victim.transform))
+        //     {
+        //         if (Physics.Raycast(tail.transform.position, victim.transform.position - tail.transform.position, out TailHit, maxDistance))
+        //         {
+        //             if (TailHit.collider.gameObject.transform.IsChildOf(victim.transform))
+        //             {
+        //                 float wtf = Vector3.Magnitude(nose.transform.position - tail.transform.position);
+        //                 wtf = Mathf.Pow(wtf, 2);
+        //                 if (NoseHit.distance < (TailHit.distance - wtf))
+        //                 {
+        //                     IfVisible(); // Если видит
+        //                 }
+        //                 else
+        //                 {
+        //                     IfInvisible();
+        //                 }
+        //             }
+        //             else IfVisible(); // Если видит только носом   
+        //         }
+        //         else
+        //         {
+        //             IfInvisible();
+        //         }
+        //     }
+        // }
+        // if (IsHunting && state != HunterState.Hunting)
+        //     FollowVictim();
+        // else if (!IsHunting && state != HunterState.Roaming)
+        //     FollowPath();
+
+        RaycastHit hit;
+        Vector3 victimDir = victim.transform.position - transform.position;
+        // Debug.Log("RAYCAST");
+        if(Physics.Raycast(transform.position, victimDir, out hit)) {
+            // Debug.Log("RAYCAST 2 " + hit.collider.gameObject.name);
+            if(hit.collider.gameObject.transform.IsChildOf(victim.transform)) {
+                // Debug.Log("RAYCAST 3");
+                Vector3 point = hit.point;
+                Vector3 noseDir = nose.transform.position - transform.position;
+                float res = Vector3.Angle(victimDir, noseDir);
+                // Debug.Log("RES " + res);
+                if(Mathf.Round(res) < fov / 2) {
+                    IfVisible(); // Если видит
+                } else {
                     IfInvisible();
                 }
-            }
-        }
+            } else IfInvisible();
+        } else IfInvisible();
+        
         if (IsHunting && state != HunterState.Hunting)
             FollowVictim();
         else if (!IsHunting && state != HunterState.Roaming)
             FollowPath();
-
-        // RaycastHit hit;
-        // Vector3 dir = victim.transform.position - transform.position;
-        // // Debug.Log("RAYCAST");
-        // if(Physics.Raycast(transform.position, dir, out hit)) {
-        //     Debug.Log("RAYCAST 2 " + hit.collider.gameObject.name);
-        //     if(hit.collider.gameObject.transform.IsChildOf(victim.transform)) {
-        //     // if(hit.collider.gameObject.name == victim.name) {
-        //         Debug.Log("RAYCAST 3");
-        //         Vector3 point = hit.point;
-        //         Vector3 dir2 = point - transform.position;
-        //         float res = Mathf.Atan2(dir2.y, dir2.x);
-        //         Debug.Log("RES " + res);
-        //     }
-        // }
     }
 
     void IfVisible()
