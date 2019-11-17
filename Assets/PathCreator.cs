@@ -10,6 +10,7 @@ public class PathCreator : MonoBehaviour
     public float distanceForDot = 3F;
     public GameObject pathPrefab;
     public NavMeshAgent racoon;
+    public GameObject fingerAnimation;
     class PathDot
     {
         public Vector3 pos;
@@ -33,6 +34,7 @@ public class PathCreator : MonoBehaviour
             }
             if(touch.phase == TouchPhase.Ended) {
                 pathList = tempPathList;
+                disableFingerAnimation();
             }
         }
 
@@ -47,7 +49,12 @@ public class PathCreator : MonoBehaviour
         if(Input.GetMouseButtonUp(0)) {
             Debug.Log("RELEASE");
             replacePath();
+            disableFingerAnimation();
         }
+    }
+
+    void disableFingerAnimation() {
+        fingerAnimation.SetActive(false);
     }
 
     void replacePath() {
