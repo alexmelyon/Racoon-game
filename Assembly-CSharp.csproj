@@ -45,9 +45,12 @@
     <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
   </PropertyGroup>
   <ItemGroup>     <Compile Include="Assets\Dog.cs" />
+     <Compile Include="Assets\Exit.cs" />
      <Compile Include="Assets\PathAgent.cs" />
      <Compile Include="Assets\PathCreator.cs" />
      <Compile Include="Assets\RayTrace.cs" />
+     <Compile Include="Assets\Sausage.cs" />
+     <Compile Include="Assets\SausageEater.cs" />
  <Reference Include="com.unity.multiplayer-hlapi.Editor">
  <HintPath>C:/workspace/Racoon-game/Library/ScriptAssemblies/com.unity.multiplayer-hlapi.Editor.dll</HintPath>
  </Reference>
@@ -66,6 +69,9 @@
  <Reference Include="com.unity.multiplayer-weaver.Editor">
  <HintPath>C:/workspace/Racoon-game/Library/ScriptAssemblies/com.unity.multiplayer-weaver.Editor.dll</HintPath>
  </Reference>
+ <Reference Include="UnityEngine.XR.LegacyInputHelpers">
+ <HintPath>C:/workspace/Racoon-game/Library/ScriptAssemblies/UnityEngine.XR.LegacyInputHelpers.dll</HintPath>
+ </Reference>
  <Reference Include="Unity.Rider.Editor">
  <HintPath>C:/workspace/Racoon-game/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
  </Reference>
@@ -75,8 +81,17 @@
  <Reference Include="Unity.2D.Tilemap.Editor">
  <HintPath>C:/workspace/Racoon-game/Library/ScriptAssemblies/Unity.2D.Tilemap.Editor.dll</HintPath>
  </Reference>
+ <Reference Include="UnityEditor.SpatialTracking">
+ <HintPath>C:/workspace/Racoon-game/Library/ScriptAssemblies/UnityEditor.SpatialTracking.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.SpatialTracking">
+ <HintPath>C:/workspace/Racoon-game/Library/ScriptAssemblies/UnityEngine.SpatialTracking.dll</HintPath>
+ </Reference>
  <Reference Include="Unity.TextMeshPro">
  <HintPath>C:/workspace/Racoon-game/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEditor.XR.LegacyInputHelpers">
+ <HintPath>C:/workspace/Racoon-game/Library/ScriptAssemblies/UnityEditor.XR.LegacyInputHelpers.dll</HintPath>
  </Reference>
  <Reference Include="UnityEditor.UI">
  <HintPath>C:/workspace/Racoon-game/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>

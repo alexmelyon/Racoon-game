@@ -7,6 +7,7 @@ using UnityEngine.AI;
 public class PathCreator : MonoBehaviour
 {
     public GameObject pathPrefab;
+    public NavMeshAgent racoon;
     class PathDot
     {
         public Vector3 pos;
@@ -40,7 +41,7 @@ public class PathCreator : MonoBehaviour
     }
 
     void ClearPath() {
-        NavMeshAgent agent = GetComponent<NavMeshAgent>();
+        NavMeshAgent agent = racoon;
         if(!agent.isStopped) {
             // Debug.Log("STOP");
             agent.SetDestination(agent.transform.position);
