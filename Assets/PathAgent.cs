@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 using UnityEngine.AI;
+using UnityEngine.SceneManagement;
 
 public class PathAgent : MonoBehaviour
 {
@@ -10,7 +11,9 @@ public class PathAgent : MonoBehaviour
     public float runSpeed = 1F;
     public GameObject idleRacoon;
     public GameObject runRacoon;
+    public string sceneName;
 
+    private bool fail;
 
     void Start() {
         
@@ -20,6 +23,9 @@ public class PathAgent : MonoBehaviour
 
     void Update()
     {
+        if(fail) {
+            StartCoroutine(LoadScene(sceneName));
+        }
         
         handleSpeed();
         if(pathCreator.IsEmpty()) {
@@ -57,9 +63,14 @@ public class PathAgent : MonoBehaviour
     {
         if(other.gameObject.GetComponent<Dog>() != null) {
             Debug.Log("FAIL");
-            if(LevelLoader.Instance != null) {
-                LevelLoader.Instance.OnFail();
-            }
+            fail = true;
         }
+    }
+
+
+    IEnumerator LoadScene(string sceneName) {
+        yield return SceneManager.UnloadSceneAsync(sceneName);
+        yield return SceneManager.LoadSceneAsync(sceneName);
+        yield break;
     }
 }

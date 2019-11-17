@@ -5,7 +5,7 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/MainMenu.unity
     guid: 1453c91f8a9c69541a201c327e0ab7d3
   - enabled: 1
@@ -13,5 +13,5 @@ EditorBuildSettings:
     guid: c653689be0fcf7543a8ac9feb1da760c
   - enabled: 1
     path: Assets/RacoonScene2.unity
-    guid: 76cf196595164b84db8abbd05afff815
+    guid: 8ec1ea71bd621d8488697a7929314cdd
   m_configObjects: {}
