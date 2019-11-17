@@ -71,6 +71,7 @@
     <Compile Include="Assets\RayTrace.cs" />
     <Compile Include="Assets\Sausage.cs" />
     <Compile Include="Assets\SausageEater.cs" />
+    <Compile Include="Assets\Teleport.cs" />
     <Reference Include="com.unity.multiplayer-hlapi.Editor">
       <HintPath>C:/Users/vdape/source/repos/ocugine-services/Racoon-game/Library/ScriptAssemblies/com.unity.multiplayer-hlapi.Editor.dll</HintPath>
     </Reference>

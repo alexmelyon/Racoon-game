@@ -28,8 +28,13 @@ public class LevelLoader : MonoBehaviour
 
     public void OnFail() {
         Debug.Log("ON FAIL");
+        Time.timeScale = 0;
+        
+        /*
         SceneManager.UnloadSceneAsync(currentLevelname);
+
         SceneManager.LoadSceneAsync(currentLevelname, LoadSceneMode.Additive);
+        */
     }
 
     public void OnSuccess() {
