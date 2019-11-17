@@ -28,14 +28,18 @@ public class LevelLoader : MonoBehaviour
 
     public void OnFail() {
         Debug.Log("ON FAIL");
-        SceneManager.UnloadSceneAsync(currentLevelname);
-        SceneManager.LoadSceneAsync(currentLevelname, LoadSceneMode.Additive);
+        StartCoroutine(LoadScene(currentLevelname));
     }
 
     public void OnSuccess() {
         Debug.Log("ON SUCCESS");
-        SceneManager.UnloadSceneAsync(currentLevelname);
-        SceneManager.LoadSceneAsync(levels[1]);
+        StartCoroutine(LoadScene(levels[1]));
+    }
+
+    IEnumerator LoadScene(string sceneName) {
+        yield return SceneManager.UnloadSceneAsync(currentLevelname);
+        yield return SceneManager.LoadSceneAsync(sceneName);
+        yield break;
     }
 
 }

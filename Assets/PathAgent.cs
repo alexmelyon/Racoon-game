@@ -43,7 +43,7 @@ public class PathAgent : MonoBehaviour
 
     void handleSpeed() {
         float v = GetComponent<NavMeshAgent>().velocity.magnitude;
-        Debug.Log("VELOCITY " + v);
+        // Debug.Log("VELOCITY " + v);
         if(v > runSpeed) {
             runRacoon.SetActive(true);
             idleRacoon.SetActive(false);
