@@ -96,7 +96,6 @@ LightmapSettings:
     m_PVRFilteringAtrousPositionSigmaAO: 1
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
-    m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
   m_UseShadowmask: 1
 --- !u!196 &4
@@ -229,9 +228,8 @@ Light:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 150231930}
   m_Enabled: 1
-  serializedVersion: 10
+  serializedVersion: 9
   m_Type: 1
-  m_Shape: 0
   m_Color: {r: 1, g: 0.95686275, b: 0.8392157, a: 1}
   m_Intensity: 1
   m_Range: 10
@@ -683,8 +681,9 @@ GameObject:
   - component: {fileID: 764209264}
   - component: {fileID: 764209263}
   - component: {fileID: 764209265}
+  - component: {fileID: 764209266}
   m_Layer: 5
-  m_Name: Panel
+  m_Name: Level loader Panel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -772,6 +771,23 @@ MonoBehaviour:
   m_ChildControlHeight: 0
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
+--- !u!114 &764209266
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 764209261}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 75415baddfada544db4103d6455d9e8c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  levels:
+  - RacoonScene
+  - RacoonScene2
+  canvas: {fileID: 291704027}
+  menuListener: {fileID: 76299906}
 --- !u!1 &1228363259
 GameObject:
   m_ObjectHideFlags: 0
@@ -1295,7 +1311,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1474452316}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 764209266}
+        m_MethodName: LoadLevel
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1474452315
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1687,7 +1714,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1785175015}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 764209266}
+        m_MethodName: LoadLevel
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1785175014
 MonoBehaviour:
   m_ObjectHideFlags: 0

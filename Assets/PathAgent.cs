@@ -33,4 +33,12 @@ public class PathAgent : MonoBehaviour
             pathCreator.RemoveNext();
         }
     }
+
+    void OnCollisionEnter(Collision other)
+    {
+        if(other.gameObject.GetComponent<Dog>() != null) {
+            Debug.Log("FAIL");
+            LevelLoader.Instance.OnFail();
+        }
+    }
 }
