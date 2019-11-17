@@ -31,6 +31,7 @@ public class Dog : MonoBehaviour
         Vector3 next = patrolDots[lastPatrolIndex].transform.position;
         agent.SetDestination(next);
         if(dogState == DogState.PATROL_FORWARD) {
+            agent.speed = walkSpeed;
             if(Vector3.Magnitude(next - transform.position) < 1.5) {
                 lastPatrolIndex++;
             }
@@ -38,6 +39,7 @@ public class Dog : MonoBehaviour
                 dogState = DogState.PATROL_BACKWARD;
             }
         } else if(dogState == DogState.PATROL_BACKWARD) {
+            agent.speed = walkSpeed;
             if(Vector3.Magnitude(next - transform.position) < 1.5) {
                 lastPatrolIndex--;
             }
@@ -45,12 +47,11 @@ public class Dog : MonoBehaviour
                 dogState = DogState.PATROL_FORWARD;
             }
         } else if(dogState == DogState.FOLLOW_VICTIM) {
+            agent.speed = runSpeed;
             RayTrace rt = GetComponent<RayTrace>();
             if(rt.isVictimVisible) {
-                Debug.Log("FOLLOW VICTIM 1");
                 agent.SetDestination(victim.transform.position);
             } else {
-                Debug.Log("FOLLOW VICTIM 2");
                 agent.SetDestination(rt.LastSeenPosition);
             }
         }
