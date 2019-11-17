@@ -57,7 +57,9 @@ public class PathCreator : MonoBehaviour
     }
 
     void disableFingerAnimation() {
-        fingerAnimation.SetActive(false);
+        if(fingerAnimation != null) {
+            fingerAnimation.SetActive(false);
+        }
     }
 
     void replacePath() {

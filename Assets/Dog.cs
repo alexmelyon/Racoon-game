@@ -18,6 +18,7 @@ public class Dog : MonoBehaviour
     public GameObject[] patrolDots;
     public GameObject walkDog;
     public GameObject runDog;
+    public AudioSource alertSound;
     
     private int lastPatrolIndex = 0;
 
@@ -63,6 +64,8 @@ public class Dog : MonoBehaviour
         dogState = DogState.FOLLOW_VICTIM;
         runDog.SetActive(true);
         walkDog.SetActive(false);
+        
+        alertSound.Play();
     }
 
     public void DoPatrol()
