@@ -1702,6 +1702,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   victim: {fileID: 1406773843}
   state: 0
+  isVictimVisible: 0
   LastSeenPosition: {x: 0, y: 0, z: 0}
   tail: {fileID: 968700309}
   nose: {fileID: 1728078067}
@@ -1717,6 +1718,7 @@ GameObject:
   - component: {fileID: 1277300174}
   - component: {fileID: 1277300173}
   - component: {fileID: 1277300172}
+  - component: {fileID: 1277300176}
   m_Layer: 0
   m_Name: Sausage
   m_TagString: Untagged
@@ -1797,6 +1799,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1277300176
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1277300171}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc78dbbc594642147b537764e99928c5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1359842598
 GameObject:
   m_ObjectHideFlags: 0
@@ -2066,6 +2080,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c66ffd0970ab5c54aa098d385ac8cfc7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  exit: {fileID: 984769337}
 --- !u!1 &1639630644
 GameObject:
   m_ObjectHideFlags: 0
