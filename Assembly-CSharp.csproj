@@ -47,6 +47,7 @@
   <ItemGroup>     <Compile Include="Assets\Dog.cs" />
      <Compile Include="Assets\Exit.cs" />
      <Compile Include="Assets\LevelLoader.cs" />
+     <Compile Include="Assets\LoadStars.cs" />
      <Compile Include="Assets\PathAgent.cs" />
      <Compile Include="Assets\PathCreator.cs" />
      <Compile Include="Assets\RayTrace.cs" />

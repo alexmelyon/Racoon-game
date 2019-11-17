@@ -28,6 +28,7 @@ public class LevelLoader : MonoBehaviour
 
     public void OnFail() {
         Debug.Log("ON FAIL");
+        Time.timeScale = 0;
         StartCoroutine(LoadScene(currentLevelname));
     }
 
