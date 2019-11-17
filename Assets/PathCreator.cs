@@ -82,7 +82,6 @@ public class PathCreator : MonoBehaviour
             dots.AddRange(tempPathList.Select(it => it.pos));
             bool closeEnough = dots.Any(it => Vector3.Magnitude(it - worldPos) < distanceForDot);
             if(!closeEnough) {
-                Debug.Log("TOO FAR");
                 return;
             }
 

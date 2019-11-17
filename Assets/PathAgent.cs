@@ -38,6 +38,7 @@ public class PathAgent : MonoBehaviour
     {
         if(other.gameObject.GetComponent<Dog>() != null) {
             Debug.Log("FAIL");
+            LevelLoader.Instance.OnFail();
         }
     }
 }

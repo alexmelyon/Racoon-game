@@ -29,6 +29,7 @@ public class SausageEater : MonoBehaviour
         } else if(other.gameObject.GetComponent<Exit>() != null) {
             if(sausageCount == sausageMax) {
                 Debug.Log("EXIT OPEN");
+                LevelLoader.Instance.OnSuccess();
             } else {
                 Debug.Log("EXIT CLOSED");
             }
