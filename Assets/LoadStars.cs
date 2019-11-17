@@ -7,20 +7,20 @@ public class LoadStars : MonoBehaviour
 {
     public GameObject[] level_preview;
 
-    private int stars1, stars2;
+    private int[] stars = new int[2];
 
     // Start is called before the first frame update
     void Start()
     {
         //stars1 = int.Parse(LoadConfigs("stars.cfg").Split(',')[0]);
         //stars2 = int.Parse(LoadConfigs("stars.cfg").Split(',')[1]);
+        
+        stars[0] = PlayerPrefs.GetInt("Stars1", 0);   
+        stars[1] = PlayerPrefs.GetInt("Stars2", 0);
 
-        stars1 = PlayerPrefs.GetInt("Stars1", 0);
-        stars2 = PlayerPrefs.GetInt("Stars2", 0);
-
-        foreach(GameObject preview in level_preview)
-            for (int i = 3; i > stars1; i--)
-                preview.GetComponentsInChildren<Transform>()[1].gameObject.SetActive(false);
+        for(int i = 0; i < level_preview.Length; i++)
+            for (int j = 3; j > stars[i]; j--)
+                level_preview[i].GetComponentsInChildren<Transform>()[1].gameObject.SetActive(false);
 
         // Выборка по всем детям
         //foreach (Transform child in level_preview_2.GetComponentsInChildren<Transform>())
