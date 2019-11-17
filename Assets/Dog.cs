@@ -57,6 +57,9 @@ public class Dog : MonoBehaviour
         }
     }
 
+    // TODO Убрать замедление
+    // TODO Не строить путь вдали от енота
+
     public void DoFollow() {
         dogState = DogState.FOLLOW_VICTIM;
     }

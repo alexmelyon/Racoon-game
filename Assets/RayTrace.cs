@@ -30,11 +30,12 @@ public class RayTrace : MonoBehaviour
     void Update()
     {
         RaycastHit NoseHit, TailHit;
-        if (Physics.Raycast(nose.transform.position, victim.transform.position - nose.transform.position, out NoseHit, 50.0f))
+        float maxDistance = 50F;
+        if (Physics.Raycast(nose.transform.position, victim.transform.position - nose.transform.position, out NoseHit, maxDistance))
             if (NoseHit.collider.gameObject == victim)
-                if (Physics.Raycast(tail.transform.position, victim.transform.position - tail.transform.position, out TailHit, 50.0f))
+                if (Physics.Raycast(tail.transform.position, victim.transform.position - tail.transform.position, out TailHit, maxDistance))
                     if (TailHit.collider.gameObject == victim)
-                        if (NoseHit.distance < TailHit.distance)
+                        if (NoseHit.distance < (TailHit.distance - Vector3.Magnitude(nose.transform.position - tail.transform.position) / 4))
                             IfVisible(); // Если видит
                         else IfInvisible();
                     else IfVisible(); // Если видит только носом   
