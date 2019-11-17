@@ -29,15 +29,13 @@ public class LevelLoader : MonoBehaviour
 
     public void OnFail() {
         Debug.Log("ON FAIL");
-        // Time.timeScale = 0;
         StartCoroutine(LoadScene(currentLevelname));
-
     }
 
     public void OnSuccess() {
         Debug.Log("ON SUCCESS");
-        // StartCoroutine(LoadScene(levels[1]));
-        winMenu.SetActive(true);
+        StartCoroutine(LoadScene(levels[1]));
+        // winMenu.SetActive(true);
     }
 
     public void Replay() {
