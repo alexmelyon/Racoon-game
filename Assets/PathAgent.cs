@@ -7,6 +7,10 @@ using UnityEngine.AI;
 public class PathAgent : MonoBehaviour
 {
     public PathCreator pathCreator;
+    public float runSpeed = 1F;
+    public GameObject idleRacoon;
+    public GameObject runRacoon;
+
 
     void Start() {
         
@@ -16,6 +20,8 @@ public class PathAgent : MonoBehaviour
 
     void Update()
     {
+        
+        handleSpeed();
         if(pathCreator.IsEmpty()) {
             return;
         }
@@ -31,6 +37,19 @@ public class PathAgent : MonoBehaviour
         // Debug.Log("DESTINATION " + magnitude);
         if(magnitude < 1.5) {
             pathCreator.RemoveNext();
+        }
+
+    }
+
+    void handleSpeed() {
+        float v = GetComponent<NavMeshAgent>().velocity.magnitude;
+        // Debug.Log("VELOCITY " + v);
+        if(v > runSpeed) {
+            runRacoon.SetActive(true);
+            idleRacoon.SetActive(false);
+        } else {
+            runRacoon.SetActive(false);
+            idleRacoon.SetActive(true);
         }
     }
 
