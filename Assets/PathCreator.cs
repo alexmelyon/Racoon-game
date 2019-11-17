@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -76,7 +77,14 @@ public class PathCreator : MonoBehaviour
             Vector3 worldPos = hit.point;
 
             
-            // if(Vector3.Magnitude(worldPos - racoon.transform.position) > distanceForDot)
+            List<Vector3> dots = new List<Vector3>();
+            dots.Add(racoon.transform.position);
+            dots.AddRange(tempPathList.Select(it => it.pos));
+            bool closeEnough = dots.Any(it => Vector3.Magnitude(it - worldPos) < distanceForDot);
+            if(!closeEnough) {
+                Debug.Log("TOO FAR");
+                return;
+            }
 
             float minDistance = 1;
             GameObject go = null;
