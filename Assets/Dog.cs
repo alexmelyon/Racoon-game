@@ -65,7 +65,7 @@ public class Dog : MonoBehaviour
         runDog.SetActive(true);
         walkDog.SetActive(false);
         
-        // alertSound.Play();
+        alertSound.Play();
     }
 
     public void DoPatrol()

@@ -50,7 +50,7 @@ public class PathCreator : MonoBehaviour
             handleTouch(mouse);
         }
         if(Input.GetMouseButtonUp(0)) {
-            // Debug.Log("RELEASE");
+            Debug.Log("RELEASE");
             replacePath();
             disableFingerAnimation();
         }
