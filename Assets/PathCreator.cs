@@ -6,6 +6,7 @@ using UnityEngine.AI;
 
 public class PathCreator : MonoBehaviour
 {
+    public float distanceForDot = 3F;
     public GameObject pathPrefab;
     public NavMeshAgent racoon;
     class PathDot
@@ -14,6 +15,7 @@ public class PathCreator : MonoBehaviour
         public GameObject go;
     }
     List<PathDot> pathList = new List<PathDot>();
+    List<PathDot> tempPathList = new List<PathDot>();
     private GameObject lastCreated;
 
     // Update is called once per frame
@@ -28,6 +30,9 @@ public class PathCreator : MonoBehaviour
             {
                 handleTouch(touch.position);
             }
+            if(touch.phase == TouchPhase.Ended) {
+                pathList = tempPathList;
+            }
         }
 
         if (Input.GetMouseButton(0))
@@ -38,12 +43,20 @@ public class PathCreator : MonoBehaviour
             Vector3 mouse = Input.mousePosition;
             handleTouch(mouse);
         }
+        if(Input.GetMouseButtonUp(0)) {
+            Debug.Log("RELEASE");
+            replacePath();
+        }
+    }
+
+    void replacePath() {
+        pathList.AddRange(tempPathList);
+        tempPathList.Clear();
     }
 
     void ClearPath() {
         NavMeshAgent agent = racoon;
         if(!agent.isStopped) {
-            // Debug.Log("STOP");
             agent.SetDestination(agent.transform.position);
         }
         foreach(PathDot d in pathList) {
@@ -62,6 +75,9 @@ public class PathCreator : MonoBehaviour
         {
             Vector3 worldPos = hit.point;
 
+            
+            // if(Vector3.Magnitude(worldPos - racoon.transform.position) > distanceForDot)
+
             float minDistance = 1;
             GameObject go = null;
             if (lastCreated == null || lastCreated != null && Vector3.Magnitude(lastCreated.transform.position - worldPos) > minDistance)
@@ -72,7 +88,7 @@ public class PathCreator : MonoBehaviour
                 PathDot dot = new PathDot();
                 dot.go = go;
                 dot.pos = worldPos;
-                pathList.Add(dot);
+                tempPathList.Add(dot);
             }
         }
     }
