@@ -29,7 +29,8 @@ public class LevelLoader : MonoBehaviour
 
     public void OnFail() {
         Debug.Log("ON FAIL");
-        StartCoroutine(LoadScene(currentLevelname));
+        // StartCoroutine(LoadScene(currentLevelname));
+        Replay();
     }
 
     public void OnSuccess() {
@@ -39,7 +40,9 @@ public class LevelLoader : MonoBehaviour
     }
 
     public void Replay() {
-        StartCoroutine(LoadScene(currentLevelname));
+        // StartCoroutine(LoadScene(currentLevelname));
+        string current = SceneManager.GetActiveScene().name;
+        SceneManager.LoadScene(current);
     }
 
     public void NextLevel() {

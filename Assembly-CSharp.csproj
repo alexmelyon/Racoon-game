@@ -44,8 +44,7 @@
     <ImplicitlyExpandNETStandardFacades>false</ImplicitlyExpandNETStandardFacades>
     <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
   </PropertyGroup>
-  <ItemGroup>     <Compile Include="Assets\AudioSounds.cs" />
-     <Compile Include="Assets\Dog.cs" />
+  <ItemGroup>     <Compile Include="Assets\Dog\Dog.cs" />
      <Compile Include="Assets\Exit.cs" />
      <Compile Include="Assets\LevelLoader.cs" />
      <Compile Include="Assets\LoadStars.cs" />
@@ -54,6 +53,7 @@
      <Compile Include="Assets\RayTrace.cs" />
      <Compile Include="Assets\Sausage.cs" />
      <Compile Include="Assets\SausageEater.cs" />
+     <Compile Include="Assets\Sounds\AudioSounds.cs" />
      <Compile Include="Assets\Teleport.cs" />
  <Reference Include="com.unity.multiplayer-hlapi.Editor">
  <HintPath>C:/workspace/Racoon-game/Library/ScriptAssemblies/com.unity.multiplayer-hlapi.Editor.dll</HintPath>
