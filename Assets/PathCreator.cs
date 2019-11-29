@@ -17,25 +17,30 @@ public class PathCreator : MonoBehaviour
         public GameObject go;
     }
     List<PathDot> pathList = new List<PathDot>();
-    // List<PathDot> tempPathList {
-    //     get { return pathList; }
-    //     set { pathList = value; }
-    // }
     private GameObject lastCreated;
 
-    // Update is called once per frame
+    void Start()
+    {
+        if (racoon == null)
+        {
+            racoon = FindObjectOfType<PathAgent>().gameObject.GetComponent<NavMeshAgent>();
+        }
+    }
+
     void Update()
     {
         foreach (var touch in Input.touches)
         {
-            if(touch.phase == TouchPhase.Began) {
+            if (touch.phase == TouchPhase.Began)
+            {
                 ClearPath();
             }
             if (touch.phase == TouchPhase.Began || touch.phase == TouchPhase.Moved)
             {
                 handleTouch(touch.position);
             }
-            if(touch.phase == TouchPhase.Ended) {
+            if (touch.phase == TouchPhase.Ended)
+            {
                 // pathList = tempPathList;
                 disableFingerAnimation();
             }
@@ -43,37 +48,46 @@ public class PathCreator : MonoBehaviour
 
         if (Input.GetMouseButton(0))
         {
-            if(Input.GetMouseButtonDown(0)) {
+            if (Input.GetMouseButtonDown(0))
+            {
                 ClearPath();
             }
             Vector3 mouse = Input.mousePosition;
             handleTouch(mouse);
         }
-        if(Input.GetMouseButtonUp(0)) {
+        if (Input.GetMouseButtonUp(0))
+        {
             // Debug.Log("RELEASE");
             replacePath();
             disableFingerAnimation();
         }
     }
 
-    void disableFingerAnimation() {
-        if(fingerAnimation != null) {
+    void disableFingerAnimation()
+    {
+        if (fingerAnimation != null)
+        {
             fingerAnimation.SetActive(false);
         }
     }
 
-    void replacePath() {
+    void replacePath()
+    {
         // pathList.AddRange(pathList);
         // pathList.Clear();
     }
 
-    void ClearPath() {
+    void ClearPath()
+    {
         NavMeshAgent agent = racoon;
-        if(!agent.isStopped) {
+        if (!agent.isStopped)
+        {
             agent.SetDestination(agent.transform.position);
         }
-        foreach(PathDot d in pathList) {
-            if(d.go != null) {
+        foreach (PathDot d in pathList)
+        {
+            if (d.go != null)
+            {
                 Destroy(d.go);
             }
         }
@@ -88,12 +102,13 @@ public class PathCreator : MonoBehaviour
         {
             Vector3 worldPos = hit.point;
 
-            
+
             List<Vector3> dots = new List<Vector3>();
             dots.Add(racoon.transform.position);
             dots.AddRange(pathList.Select(it => it.pos));
             bool closeEnough = dots.Any(it => Vector3.Magnitude(it - worldPos) < distanceForDot);
-            if(!closeEnough) {
+            if (!closeEnough)
+            {
                 return;
             }
 
@@ -103,7 +118,7 @@ public class PathCreator : MonoBehaviour
             {
                 go = Instantiate(pathPrefab, worldPos, Quaternion.identity);
                 lastCreated = go;
-                
+
                 PathDot dot = new PathDot();
                 dot.go = go;
                 dot.pos = worldPos;
@@ -125,7 +140,8 @@ public class PathCreator : MonoBehaviour
     public void RemoveNext()
     {
         GameObject go = pathList[0].go;
-        if(go != null) {
+        if (go != null)
+        {
             Destroy(go);
         }
         pathList.RemoveAt(0);

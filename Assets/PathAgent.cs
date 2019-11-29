@@ -15,8 +15,13 @@ public class PathAgent : MonoBehaviour
 
     private bool fail;
 
-    void Start() {
-        
+    void Start()
+    {
+        if (pathCreator == null)
+        {
+            pathCreator = FindObjectOfType<PathCreator>();
+        }
+
         NavMeshAgent agent = GetComponent<NavMeshAgent>();
         bool warped = agent.Warp(transform.position);
     }
