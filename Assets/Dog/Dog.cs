@@ -15,7 +15,7 @@ public class Dog : MonoBehaviour
     DogState dogState {
         get { return _dogState; }
         set { if(_dogState != value) {
-            Debug.Log("DOG STATE " + value);
+            Debug.Log(gameObject.name + " STATE " + value);
             _dogState = value;
         }}
     }
@@ -28,10 +28,12 @@ public class Dog : MonoBehaviour
     public GameObject runDog;
     public AudioSource alertSound;
     GameObject nose;
+    public enum FollowBehaviour { FOLLOW_LAST_RACOON_POSITION, FOLLOW_VISIBLE }
+    public FollowBehaviour followBehaviour = FollowBehaviour.FOLLOW_LAST_RACOON_POSITION;
     
     private int lastPatrolIndex = 0;
     private Vector3 lastRacoonPosition;
-    private bool reachedLastVisiblePosition = false;
+    private bool isReachedLastVisiblePosition = false;
 
     void Start()
     {
@@ -77,19 +79,27 @@ public class Dog : MonoBehaviour
             }
         } else if(dogState == DogState.FOLLOW_VISIBLE_VICTIM) {
             agent.speed = runSpeed;
-            if(IsRacoonVisible()) {
-                agent.SetDestination(victim.transform.position);
+            if(followBehaviour == FollowBehaviour.FOLLOW_VISIBLE) {
+                if(IsRacoonVisible()) {
+                    agent.SetDestination(victim.transform.position);
+                } else {
+                    dogState = DogState.PATROL_FORWARD;
+                }
             } else {
-                lastRacoonPosition = victim.transform.position;
-                dogState = DogState.FOLLOW_LAST_SEEN_VICTIM_POSITION;
+                if(IsRacoonVisible()) {
+                    agent.SetDestination(victim.transform.position);
+                } else {
+                    lastRacoonPosition = victim.transform.position;
+                    dogState = DogState.FOLLOW_LAST_SEEN_VICTIM_POSITION;
+                }
             }
         } else if(dogState == DogState.FOLLOW_LAST_SEEN_VICTIM_POSITION) {
             agent.speed = runSpeed;
             if(IsRacoonVisible()) {
                 dogState = DogState.FOLLOW_VISIBLE_VICTIM;
             } else {
-                reachedLastVisiblePosition = Vector3.Magnitude(lastRacoonPosition - transform.position) < GetComponent<NavMeshAgent>().stoppingDistance;
-                if(!reachedLastVisiblePosition) {
+                isReachedLastVisiblePosition = Vector3.Magnitude(lastRacoonPosition - transform.position) < GetComponent<NavMeshAgent>().stoppingDistance;
+                if(!isReachedLastVisiblePosition) {
                     agent.SetDestination(lastRacoonPosition);
                 } else {
                     dogState = DogState.PATROL_FORWARD;
