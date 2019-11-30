@@ -42,6 +42,9 @@ public class Dog : MonoBehaviour
             }
             nose = n;
         }
+        if(victim == null) {
+            victim = FindObjectOfType<PathAgent>().gameObject;
+        }
     }
 
     // Update is called once per frame

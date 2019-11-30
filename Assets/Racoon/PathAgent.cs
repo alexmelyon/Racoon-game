@@ -29,7 +29,7 @@ public class PathAgent : MonoBehaviour
     void Update()
     {
         if(fail) {
-            StartCoroutine(LoadScene(sceneName));
+            LevelLoader.Replay();
         }
         
         handleSpeed();
@@ -70,12 +70,5 @@ public class PathAgent : MonoBehaviour
             Debug.Log("FAIL");
             fail = true;
         }
-    }
-
-
-    IEnumerator LoadScene(string sceneName) {
-        yield return SceneManager.UnloadSceneAsync(sceneName);
-        yield return SceneManager.LoadSceneAsync(sceneName);
-        yield break;
     }
 }

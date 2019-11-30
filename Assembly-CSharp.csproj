@@ -45,7 +45,6 @@
     <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
   </PropertyGroup>
   <ItemGroup>     <Compile Include="Assets\Dog\Dog.cs" />
-     <Compile Include="Assets\Dog\RayTrace.cs" />
      <Compile Include="Assets\Exit.cs" />
      <Compile Include="Assets\LevelLoader.cs" />
      <Compile Include="Assets\LoadStars.cs" />

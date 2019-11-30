@@ -39,7 +39,7 @@ public class LevelLoader : MonoBehaviour
         // winMenu.SetActive(true);
     }
 
-    public void Replay() {
+    public static void Replay() {
         // StartCoroutine(LoadScene(currentLevelname));
         string current = SceneManager.GetActiveScene().name;
         SceneManager.LoadScene(current);
