@@ -926,7 +926,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1239361004}
   m_Layer: 0
-  m_Name: Paths
+  m_Name: dog path
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1459,7 +1459,8 @@ PrefabInstance:
       propertyPath: victim
       value: 
       objectReference: {fileID: 1406773843}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 4558493662533418957, guid: cab5db93c64f7c541aaa87f32eb550d8, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: cab5db93c64f7c541aaa87f32eb550d8, type: 3}
 --- !u!1001 &5333619241988602128
 PrefabInstance:

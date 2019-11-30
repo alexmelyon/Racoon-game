@@ -17,7 +17,7 @@ public class RayTrace : MonoBehaviour
     public Vector3 LastSeenPosition;
 
     // Хвост, нос
-    public GameObject tail, nose;
+    public GameObject nose;
     public float fov = 90;
 
     // Start is called before the first frame update
