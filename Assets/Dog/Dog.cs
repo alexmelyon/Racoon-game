@@ -15,7 +15,7 @@ public class Dog : MonoBehaviour
     DogState dogState {
         get { return _dogState; }
         set { if(_dogState != value) {
-            Debug.Log(gameObject.name + " STATE " + value);
+            // Debug.Log(gameObject.name + " STATE " + value);
             _dogState = value;
         }}
     }

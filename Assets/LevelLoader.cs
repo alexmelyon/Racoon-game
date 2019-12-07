@@ -9,7 +9,6 @@ public class LevelLoader : MonoBehaviour
 
     public string[] levels;
     public GameObject canvas;
-    public AudioListener menuListener;
     public GameObject winMenu;
 
     private string currentLevelname;
@@ -20,10 +19,9 @@ public class LevelLoader : MonoBehaviour
     }
 
     public void LoadLevel(int levelNum) {
-        currentLevelname = levels[levelNum];
         Debug.Log("LOAD " + currentLevelname);
+        currentLevelname = levels[levelNum];
         canvas.gameObject.SetActive(false);
-        menuListener.gameObject.SetActive(false);
         SceneManager.LoadSceneAsync(currentLevelname, LoadSceneMode.Additive);
     }
 
@@ -39,8 +37,11 @@ public class LevelLoader : MonoBehaviour
         // winMenu.SetActive(true);
     }
 
+    public void InstanceReplay() {
+        Replay();
+    }
+
     public static void Replay() {
-        // StartCoroutine(LoadScene(currentLevelname));
         string current = SceneManager.GetActiveScene().name;
         SceneManager.LoadScene(current);
     }
