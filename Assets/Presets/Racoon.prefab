@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 5333619242798584649}
   - component: {fileID: 5333619242798584650}
   - component: {fileID: 5333619242798584651}
+  - component: {fileID: 1402670263143897314}
   m_Layer: 0
   m_Name: Racoon
   m_TagString: Untagged
@@ -32,7 +33,7 @@ Transform:
   m_GameObject: {fileID: 5333619242798584643}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -27, y: 1, z: -6.88}
-  m_LocalScale: {x: 1, y: 0.9, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 5333619243442846196}
   - {fileID: 1116442731520227693}
@@ -168,8 +169,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   exit: {fileID: 0}
-  sceneThis: RacoonScene
   sceneNext: RacoonScene2
+--- !u!114 &1402670263143897314
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5333619242798584643}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f5ad4693fe947140acbd21a650afeca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  distanceForDot: 3
+  pathPrefab: {fileID: 4939701059694192135, guid: c1b27f4c0cd5489479f47f8743a7efaa,
+    type: 3}
+  racoon: {fileID: 5333619242798584644}
+  fingerAnimation: {fileID: 0}
 --- !u!1 &5333619243442846195
 GameObject:
   m_ObjectHideFlags: 0
@@ -222,16 +239,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5333619242798584648}
     m_Modifications:
-    - target: {fileID: -927199367670048503, guid: 8d7b69b3219abb34fb0a6900ec2cbff3,
+    - target: {fileID: -6057140222963153312, guid: 8d7b69b3219abb34fb0a6900ec2cbff3,
         type: 3}
-      propertyPath: m_Name
-      value: IdleAnimRacoon1
-      objectReference: {fileID: 0}
-    - target: {fileID: -927199367670048503, guid: 8d7b69b3219abb34fb0a6900ec2cbff3,
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 18d5b21a402052244ad92a04c7a6d4be, type: 2}
+    - target: {fileID: -5559063346734644086, guid: 8d7b69b3219abb34fb0a6900ec2cbff3,
         type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 202207501c51df448ba6c7ce1df71f73, type: 2}
     - target: {fileID: -4216859302048453862, guid: 8d7b69b3219abb34fb0a6900ec2cbff3,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -240,7 +257,7 @@ PrefabInstance:
     - target: {fileID: -4216859302048453862, guid: 8d7b69b3219abb34fb0a6900ec2cbff3,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -0.9
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 8d7b69b3219abb34fb0a6900ec2cbff3,
         type: 3}
@@ -302,16 +319,16 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.01
       objectReference: {fileID: 0}
-    - target: {fileID: -6057140222963153312, guid: 8d7b69b3219abb34fb0a6900ec2cbff3,
+    - target: {fileID: -927199367670048503, guid: 8d7b69b3219abb34fb0a6900ec2cbff3,
         type: 3}
-      propertyPath: m_Controller
-      value: 
-      objectReference: {fileID: 9100000, guid: 18d5b21a402052244ad92a04c7a6d4be, type: 2}
-    - target: {fileID: -5559063346734644086, guid: 8d7b69b3219abb34fb0a6900ec2cbff3,
+      propertyPath: m_Name
+      value: IdleAnimRacoon1
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 8d7b69b3219abb34fb0a6900ec2cbff3,
         type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 202207501c51df448ba6c7ce1df71f73, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8d7b69b3219abb34fb0a6900ec2cbff3, type: 3}
 --- !u!1 &4117767146581429118 stripped
@@ -333,11 +350,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5333619242798584648}
     m_Modifications:
-    - target: {fileID: -927199367670048503, guid: 56de172d34e22154fae453a7cb96ccde,
+    - target: {fileID: -6057140222963153312, guid: 56de172d34e22154fae453a7cb96ccde,
         type: 3}
-      propertyPath: m_Name
-      value: RunAnimRacoon1
-      objectReference: {fileID: 0}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: d788863b19adb294fbd8f01055720f95, type: 2}
+    - target: {fileID: -5559063346734644086, guid: 56de172d34e22154fae453a7cb96ccde,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 202207501c51df448ba6c7ce1df71f73, type: 2}
     - target: {fileID: -4216859302048453862, guid: 56de172d34e22154fae453a7cb96ccde,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -346,7 +368,7 @@ PrefabInstance:
     - target: {fileID: -4216859302048453862, guid: 56de172d34e22154fae453a7cb96ccde,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -0.9
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 56de172d34e22154fae453a7cb96ccde,
         type: 3}
@@ -401,23 +423,18 @@ PrefabInstance:
     - target: {fileID: -4216859302048453862, guid: 56de172d34e22154fae453a7cb96ccde,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.011111111
+      value: 0.01
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 56de172d34e22154fae453a7cb96ccde,
         type: 3}
       propertyPath: m_LocalScale.z
       value: 0.01
       objectReference: {fileID: 0}
-    - target: {fileID: -6057140222963153312, guid: 56de172d34e22154fae453a7cb96ccde,
+    - target: {fileID: -927199367670048503, guid: 56de172d34e22154fae453a7cb96ccde,
         type: 3}
-      propertyPath: m_Controller
-      value: 
-      objectReference: {fileID: 9100000, guid: d788863b19adb294fbd8f01055720f95, type: 2}
-    - target: {fileID: -5559063346734644086, guid: 56de172d34e22154fae453a7cb96ccde,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 202207501c51df448ba6c7ce1df71f73, type: 2}
+      propertyPath: m_Name
+      value: RunAnimRacoon1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 56de172d34e22154fae453a7cb96ccde, type: 3}
 --- !u!1 &4117767146986349735 stripped

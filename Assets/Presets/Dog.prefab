@@ -13,8 +13,7 @@ GameObject:
   - component: {fileID: 4558493662533418950}
   - component: {fileID: 4558493662533418951}
   - component: {fileID: 4558493662533418955}
-  - component: {fileID: 4558493662533418954}
-  - component: {fileID: 4558493662533418957}
+  - component: {fileID: 16352810}
   m_Layer: 0
   m_Name: Dog
   m_TagString: Untagged
@@ -34,7 +33,6 @@ Transform:
   m_LocalScale: {x: 1, y: 0.9, z: 1}
   m_Children:
   - {fileID: 4558493663018023045}
-  - {fileID: 4558493664404548071}
   - {fileID: 4558493664061784439}
   - {fileID: 8807265277839613738}
   - {fileID: 8807265277883991250}
@@ -123,7 +121,7 @@ NavMeshAgent:
   m_BaseOffset: 1
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!114 &4558493662533418954
+--- !u!114 &16352810
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -135,34 +133,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8763044571d7cef498c1bdc1f77cb245, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  victim: {fileID: 0}
-  walkSpeed: 2
-  runSpeed: 3.5
+  walkSpeed: 3.5
+  runSpeed: 5
+  nose: {fileID: 4558493663018023042}
   patrolDots:
   - {fileID: 0}
   - {fileID: 0}
   walkDog: {fileID: 5504217621363813689}
   runDog: {fileID: 5504217621324543681}
   alertSound: {fileID: 0}
---- !u!114 &4558493662533418957
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4558493662533418948}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c109c8598ecd5ef4b8fe9dc6bf5129ba, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  victim: {fileID: 0}
-  state: 0
-  isVictimVisible: 0
-  LastSeenPosition: {x: 0, y: 0, z: 0}
-  tail: {fileID: 4558493664404548068}
-  nose: {fileID: 4558493663018023042}
-  fov: 90
+  followBehaviour: 0
 --- !u!1 &4558493663018023042
 GameObject:
   m_ObjectHideFlags: 0
@@ -284,7 +264,7 @@ Transform:
   m_LocalScale: {x: 14.395644, y: 14.395644, z: 14.395644}
   m_Children: []
   m_Father: {fileID: 4558493662533418952}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 90.00001, y: 0, z: -45}
 --- !u!212 &4558493664061784438
 SpriteRenderer:
@@ -335,98 +315,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!1 &4558493664404548068
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 4558493664404548071}
-  - component: {fileID: 4558493664404548072}
-  - component: {fileID: 4558493664404548073}
-  - component: {fileID: 4558493664404548070}
-  m_Layer: 0
-  m_Name: Tail
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!4 &4558493664404548071
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4558493664404548068}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -1}
-  m_LocalScale: {x: 0.2, y: 0.2, z: 0.2}
-  m_Children: []
-  m_Father: {fileID: 4558493662533418952}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &4558493664404548072
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4558493664404548068}
-  m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
---- !u!23 &4558493664404548073
-MeshRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4558493664404548068}
-  m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 3
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
---- !u!135 &4558493664404548070
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4558493664404548068}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 0
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &4558493664407106608
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -434,11 +322,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4558493662533418952}
     m_Modifications:
-    - target: {fileID: -927199367670048503, guid: eb121fb75589f03448ea0706027fd2e1,
-        type: 3}
-      propertyPath: m_Name
-      value: dog01_rig_walk
-      objectReference: {fileID: 0}
     - target: {fileID: -6057140222963153312, guid: eb121fb75589f03448ea0706027fd2e1,
         type: 3}
       propertyPath: m_Controller
@@ -482,7 +365,7 @@ PrefabInstance:
     - target: {fileID: -4216859302048453862, guid: eb121fb75589f03448ea0706027fd2e1,
         type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: eb121fb75589f03448ea0706027fd2e1,
         type: 3}
@@ -504,6 +387,11 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 30b8f9594a5a03b40a520b131a1e822b, type: 2}
+    - target: {fileID: -927199367670048503, guid: eb121fb75589f03448ea0706027fd2e1,
+        type: 3}
+      propertyPath: m_Name
+      value: dog01_rig_walk
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: eb121fb75589f03448ea0706027fd2e1, type: 3}
 --- !u!1 &5504217621363813689 stripped
@@ -525,16 +413,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4558493662533418952}
     m_Modifications:
-    - target: {fileID: -927199367670048503, guid: 786ea6ebd5d43a04bbe30b7a0639e393,
+    - target: {fileID: -6057140222963153312, guid: 786ea6ebd5d43a04bbe30b7a0639e393,
         type: 3}
-      propertyPath: m_Name
-      value: dog01_rig_run
-      objectReference: {fileID: 0}
-    - target: {fileID: -927199367670048503, guid: 786ea6ebd5d43a04bbe30b7a0639e393,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: ed861fa361b30e040934d5dd5b1b4705, type: 2}
     - target: {fileID: -4216859302048453862, guid: 786ea6ebd5d43a04bbe30b7a0639e393,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -573,7 +456,7 @@ PrefabInstance:
     - target: {fileID: -4216859302048453862, guid: 786ea6ebd5d43a04bbe30b7a0639e393,
         type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 786ea6ebd5d43a04bbe30b7a0639e393,
         type: 3}
@@ -590,16 +473,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: -6057140222963153312, guid: 786ea6ebd5d43a04bbe30b7a0639e393,
-        type: 3}
-      propertyPath: m_Controller
-      value: 
-      objectReference: {fileID: 9100000, guid: ed861fa361b30e040934d5dd5b1b4705, type: 2}
     - target: {fileID: -1770164654316689546, guid: 786ea6ebd5d43a04bbe30b7a0639e393,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 30b8f9594a5a03b40a520b131a1e822b, type: 2}
+    - target: {fileID: -927199367670048503, guid: 786ea6ebd5d43a04bbe30b7a0639e393,
+        type: 3}
+      propertyPath: m_Name
+      value: dog01_rig_run
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 786ea6ebd5d43a04bbe30b7a0639e393,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 786ea6ebd5d43a04bbe30b7a0639e393, type: 3}
 --- !u!1 &5504217621324543681 stripped

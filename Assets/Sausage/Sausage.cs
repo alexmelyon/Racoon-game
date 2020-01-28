@@ -4,4 +4,5 @@ using UnityEngine;
 
 public class Sausage : MonoBehaviour
 {
+    public BoxCollider trigger;
 }

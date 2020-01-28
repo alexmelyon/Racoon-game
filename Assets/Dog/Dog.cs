@@ -20,32 +20,35 @@ public class Dog : MonoBehaviour
         }}
     }
 
-    public GameObject victim;
     public float walkSpeed = 3.5F;
     public float runSpeed = 5F;
+    public GameObject nose;
     public GameObject[] patrolDots;
     public GameObject walkDog;
     public GameObject runDog;
     public AudioSource alertSound;
-    GameObject nose;
     public enum FollowBehaviour { FOLLOW_LAST_RACOON_POSITION, FOLLOW_VISIBLE }
     public FollowBehaviour followBehaviour = FollowBehaviour.FOLLOW_LAST_RACOON_POSITION;
-    
+
+    private GameObject victim;
     private int lastPatrolIndex = 0;
     private Vector3 lastRacoonPosition;
     private bool isReachedLastVisiblePosition = false;
 
     void Start()
     {
-        if(nose == null) {
-            GameObject n = transform.Find("Nose").gameObject;
-            if(n == null) {
-                throw new System.Exception("Nose not found");
-            }
-            nose = n;
-        }
         if(victim == null) {
             victim = FindObjectOfType<PathAgent>().gameObject;
+        }
+        DisablePathVisibility();
+    }
+
+    void DisablePathVisibility()
+    {
+        for(int i = 0; i < patrolDots.Length; i++)
+        {
+            var go = patrolDots[i];
+            go.SetActive(false);
         }
     }
 
@@ -53,7 +56,13 @@ public class Dog : MonoBehaviour
     void Update()
     {
         NavMeshAgent agent = GetComponent<NavMeshAgent>();
-        Vector3 next = patrolDots[lastPatrolIndex].transform.position;
+        if(patrolDots == null || patrolDots.Length == 0 || patrolDots[0] == null)
+        {
+            Debug.Log("Dog path " + gameObject.name + " is empty or not assigned");
+            return;
+        }
+        GameObject nextDot = patrolDots[lastPatrolIndex];
+        Vector3 next = nextDot.transform.position;
         agent.SetDestination(next);
         if(dogState == DogState.PATROL_FORWARD) {
             agent.speed = walkSpeed;
